@@ -39,9 +39,7 @@ CREATE TABLE `produits` (
 --
 
 INSERT INTO `produits` (`reference`, `designation`, `prixunitaire`, `quantiteStock`) VALUES
-('', 'pc portable HP-i7 - 2,3 Ghz / 16 Go Ram', 5000.00, 10),
-('', 'pc portable Dell-i9 - 4,2 Ghz / 32 Go Ram', 12000.00, 3),
-('', 'pc portable Dell-i9 - 4,2 Ghz / 32 Go Ram', 12000.00, 3),
+('HP23942', 'pc portable HP-i7 - 2,3 Ghz / 16 Go Ram', 5000.00, 10),
 ('SM20001', 'Samsung S25 Ultra 256 GO 12 RAM', 10000.00, 8);
 COMMIT;
 
