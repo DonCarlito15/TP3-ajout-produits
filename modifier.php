@@ -5,6 +5,10 @@ $sql = "SELECT * FROM produits WHERE reference = ?";
 $stmt = $pdo->prepare($sql);
 $stmt->execute([$ref]);
 $p = $stmt->fetch();
+if (!$p){
+    header("location: liste.php");
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
