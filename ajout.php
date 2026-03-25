@@ -17,7 +17,7 @@ if ($stmt->execute([$ref, $des, $prix, $qte])) {
                 <td>$qte</td>
                 <td>
                     <a href='modifier.php?ref=$ref' class='btn btn-warning btn-sm'>Modifier</a>
-                    <button class='btn btn-danger btn-sm'>Supprimer</button>
+                    <button class='btn btn-danger btn-sm btnSupprimer' data-ref='$ref'>Supprimer</button>
                 </td> 
           </tr>";
 } else {

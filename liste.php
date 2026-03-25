@@ -13,13 +13,11 @@ require "connexion.php";
 </head>
 
 <body>
-    <h1>Nouveau produit</h1>
+    <h1>Padrino Store</h1>
 
     <div class="container">
-        <h2 class="mb-4 text-center">Nouveau Produit</h2>
+        <h2 class="mb-4 text-center">Ajouter un produit !</h2>
         <div id="message"></div>
-
-
 
         <form id="formProduit">
 
@@ -72,13 +70,32 @@ require "connexion.php";
                         <td><?php echo $produit['quantiteStock']; ?></td>
                         <td>
                             <a href="modifier.php?reference=<?php echo $produit['reference']; ?>" class = 'btn btn-warning btn-sm'>Modifier</a>
-                            <button class="btn btn-danger btn-sm">Supprimer</button>
+                            <button class="btn btn-danger btn-sm btnSupprimer" data-ref="<?php echo $produit['reference']; ?>">Supprimer</button>
                         </td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
         </table>
         <script>
+            var form=document.getElementById("formProduit");
+            form.addEventListener("submit",function(e) 
+                {
+                e.preventDefault();
+                var data = new FormData(form);
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST","ajout.php",true);
+                xhr.onload=function()
+                {
+                    if(xhr.status==200){
+                        document.getElementById("listeProduits").innerHTML+=xhr.responseText;
+                        document.getElementById("message").innerHTML='<div class= "alert alert-success">Produit Ajoute !</div>';
+                        form.reset();
+
+                    }
+
+                };
+                xhr.send(data);
+            });
 
         </script>
     </div>
